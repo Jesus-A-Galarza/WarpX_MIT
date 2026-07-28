@@ -45,9 +45,9 @@ my_constants.sigmay_init = sigmay*sqrt(1 + (muz/betay)**2)
 my_constants.Lx = 8*( sigmax_init*cos(rotation_angle) + sigmaz*sin(rotation_angle))
 my_constants.Ly = 8*sigmay_init
 my_constants.Lz = 16*sigmaz*cos(rotation_angle)
-my_constants.nx = 128 # FFT_plan_length / 2 - 1 - 2*phi_ngrow = 1024/2 -1 -8 = 512 - 9 = 503, modified from 509
-my_constants.ny = 128 #modifeid from 2045
-my_constants.nz = 128 # FFT_plan_length / 2 - 1 - 2*phi_ngrow = 256/2 -1 -8 = 128 - 9 = 119, modified from 50
+my_constants.nx = 256 # FFT_plan_length / 2 - 1 - 2*phi_ngrow = 1024/2 -1 -8 = 512 - 9 = 503, modified from 509
+my_constants.ny = 256 #modifeid from 2045
+my_constants.nz = 256 # FFT_plan_length / 2 - 1 - 2*phi_ngrow = 256/2 -1 -8 = 128 - 9 = 119, modified from 50
 my_constants.dx = Lx/nx
 my_constants.dy = Ly/ny
 my_constants.dz = Lz/nz
@@ -126,7 +126,7 @@ beam1.q_tot = -charge
 beam1.z_cut = 4
 beam1.focal_distance = focal_distance
 beam1.do_gaussian_beam_rotation = 1
-beam1.do_gaussian_beam_rotation_momenta = 1
+beam1.do_gaussian_beam_rotation_momenta = 0
 beam1.gaussian_beam_rotation_angle = rotation_angle
 beam1.gaussian_beam_rotation_axis = 0 1 0
 beam1.momentum_distribution_type = gaussian
@@ -161,7 +161,7 @@ beam2.q_tot = charge
 beam2.z_cut = 4
 beam2.focal_distance = focal_distance
 beam2.do_gaussian_beam_rotation = 1
-beam2.do_gaussian_beam_rotation_momenta = 1
+beam2.do_gaussian_beam_rotation_momenta = 0
 beam2.gaussian_beam_rotation_angle = -rotation_angle
 beam2.gaussian_beam_rotation_axis = 0 1 0
 beam2.momentum_distribution_type = gaussian
