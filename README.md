@@ -41,6 +41,10 @@ cmake -S . -B build_py \
   -DPython_EXECUTABLE="$(which python3)"
 cmake --build build -j 32
 ```
+#### WarpX features (Start)
+
+#### WarpX feature (end)
+
 Also, we require to use QED table not downloaded in the previous orders, then copy the following files from this Github into the created warpx directory:
 
 ```bash
