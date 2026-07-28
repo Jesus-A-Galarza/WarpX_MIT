@@ -1,1 +1,2 @@
-#Running WarpX with Multiple GPUs
+# Running WarpX with Multiple GPUs
+
