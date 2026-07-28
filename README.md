@@ -51,6 +51,10 @@ Additionally, download the following sbatch file to run jobs in subMIT and chang
 ```bash
 perlmutter_fccz_random.sbatch
 ```
+Submit the jobs as
+```bash
+sbatch perlmutter_fccz_random.sbatch
+```
 As a test file we use one in which beams' momenta are not originally rotated with reduced grid number to $256^3$:
 ```bash
 Formenti.in
