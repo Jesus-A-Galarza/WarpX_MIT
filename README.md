@@ -47,4 +47,11 @@ Also, we require to use QED table not downloaded in the previous orders, then co
 bw_table_chi_min_1.e-2_chi_max_1.e1_points_1024
 qs_table_chi_min_1.e-5_chi_max_1.e1_points_1024
 ```
-
+Additionally, download the following sbatch file to run jobs in subMIT and change the INPUT path at your convinience
+```bash
+perlmutter_fccz_random.sbatch
+```
+As a test file we use one in which beams' momenta are not originally rotated with reduced grid number to $256^3$:
+```bash
+Formenti.in
+```
