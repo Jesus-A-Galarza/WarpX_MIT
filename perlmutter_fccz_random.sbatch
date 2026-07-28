@@ -61,7 +61,7 @@ ls -lh ${CUDA_ROOT}/lib64/libcufft* || true
 echo
 
 EXE=/work/submit/jesusgal/FCCPhysics/Summer/GPU_2/warpx/build/bin/warpx.3d
-INPUTS=/work/submit/jesusgal/FCCPhysics/Summer/GPU_2/warpx/Formenti.in
+INPUTS=/work/submit/Formenti.in  #Replace with warpX file path as required
 
 echo "========== EXECUTABLE CHECK =========="
 echo "EXE=${EXE}"
