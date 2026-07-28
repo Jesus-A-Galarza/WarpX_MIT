@@ -1,1 +1,4 @@
-# WarpX_MIT
+# WarpX for SubMIT
+## Instalation
+### GPU
+First we clone the repository
