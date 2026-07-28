@@ -2,7 +2,7 @@
 ## Instalation
 ### GPU
 First we clone the repository
-'''python
+```bash
 git clone https://github.com/BLAST-WarpX/warpx.git warpx
 cd warpx
-'''
+```
