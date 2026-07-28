@@ -26,3 +26,23 @@ export FC=$(which gfortran)
 export CUDACXX=$(which nvcc)
 export CUDAHOSTCXX=$(which g++)
 ```
+We proceed by creating the build directory
+
+```bash
+cmake -S . -B build_py \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DWarpX_COMPUTE=CUDA \
+  -DWarpX_DIMS=3 \
+  -DWarpX_FFT=ON \
+  -DWarpX_MPI=ON \
+  -DWarpX_OPENPMD=ON \
+  -DWarpX_QED=ON \
+  -DWarpX_PYTHON=ON \
+  -DPython_EXECUTABLE="$(which python3)"
+cmake --build build -j 32
+```
+Also, we require to use QED table not downloaded in the previous orders, then copy the following files in the warpx directory:
+
+```bash
+
+```
