@@ -1,6 +1,9 @@
 # Running WarpX with Multiple GPUs
 ## 1 GPU configuration limitations
-Running WarpX with a number of cells greater than $576^3$ requires a memory higher than 24Gb while subMIT nodes have a capacity of 21 Gb. Then, using multiple GPU's becomes imperative; however, there are still limitations. While it is possible to run with multiple GPU's with MPI, subMIT capacity is shared among all their users and consequently availability for a number of GPUs higher than 2 is scarce. The recommendation is to send an email to subMIT team for a reserved daily usage if you would like to run complex jobs. The following lines are the information of the nodes and their addresses. These are easily replaceable in the batch job to point towards an specific node in the batch file:
+Running WarpX with a number of cells greater than $576^3$ requires a memory higher than 24Gb while subMIT nodes have a capacity of 21 Gb. Then, using multiple GPU's becomes imperative; however, there are still limitations. 
+
+## 2 GPU configuration
+While it is possible to run with multiple GPU's with MPI, subMIT capacity is shared among all their users and consequently availability for a number of GPUs higher than 2 is scarce. The recommendation is to send an email to subMIT team for a reserved daily usage if you would like to run complex jobs. The following lines are the information of the nodes and their addresses. These are easily replaceable in the batch job to point towards an specific node in the batch file:
 
 ```bash
 ---- nvidia_a30
@@ -18,3 +21,4 @@ submit37 gpu:2
 ---- gtx1080
 submit60to73 gtx1080
 ```
+### WarpX file modification to allow multiple GPUs usage
