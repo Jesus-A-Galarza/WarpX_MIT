@@ -21,6 +21,7 @@ submit37 gpu:2
 ---- gtx1080
 submit60to73 gtx1080
 ```
-Acknowledging these limitations, we 
+Acknowledging these limitations, modifications in both the warpX input file and in the batch are required to run with (in this case) 2 GPUs. Warp
 ### WarpX file modification to allow multiple GPUs usage
+\
 
