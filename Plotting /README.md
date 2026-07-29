@@ -2,7 +2,7 @@
 ## plots_base
 This reads (by default) the diags directory produced by WarpX and produces two directories: diags_iteration_analysis and diags_iteration_analysis_corrected.
 
-In WarpX, if a particle is located inside the simulation grid at a certain iteration but it is calculated to be outside of the grid for the next iteration then warpx will record its position outside of the grid and this information is saved under diags_iteration_analysis.
+In WarpX, if a particle is located inside the simulation grid at a certain iteration but it is calculated to be outside of the grid for the next iteration then warpx will record its position outside of the grid and this information will be plotted under diags_iteration_analysis.
 
 Using a simple interpolation to calculate the trajectory of a particle outside of the grid, diags_iteration_analysis_corrected contains the infomration of the particle to the calculated location of the grid.
 
