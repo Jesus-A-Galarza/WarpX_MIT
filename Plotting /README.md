@@ -35,7 +35,7 @@ Gives a label to the plots.
 ```bash
 --iterations [N ...]
 ```
-Restricts the analysis to specific $\texbf{available}$ iterations.
+Restricts the analysis to specific $available$ iterations.
 ```bash
 --outside-mode MODE
 ```
