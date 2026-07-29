@@ -34,5 +34,25 @@ sbatch perlmutter_fccz_random.sbatch
 to obtain your job
 ### WarpX file modification to allow multiple GPUs usage
 #### Atention
-WarpX required the product of warpx.numprocs to equal the number of MPI ranks, on MPI per GPU.
+WarpX required the product of warpx.numprocs to equal the number of MPI ranks, one MPI per GPU.
+#### Increase the Grid while keeping 2 GPU
+For this change you only need to modify the warpX input file, but, as mentioned before, these may induce computational problems due to the memory usage.
+#### Increasing the number of GPUs
+For 
+```bash
+my_constants.nx = N
+my_constants.ny = N
+my_constants.nz = N
 
+warpx.numprocs = 1 1 G
+```
+we require to modify the sbatch file to 
+```bash
+#SBATCH --ntasks=G
+#SBATCH --gres=gpu:G
+```
+However, for this purpose one has to be sure that the current node possesses the required number of GPUs. One can check that with the following command
+```bash
+scontrol show node submit37 | grep -E "Gres=|CfgTRES="
+```
+in which we use submit37 as an example, you can modify this part to check any node.
