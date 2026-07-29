@@ -43,6 +43,36 @@ cmake --build build -j 32
 ```
 #### WarpX features (Start)
 
+```sbatch
+-DWarpX_COMPUTE=CUDA
+```
+Compiles WarpX for NVIDIA GPUs using CUDA.
+```sbatch
+-DWarpX_DIMS=3
+```
+Builds WarpX implementation for three spatial dimensions and three momentum components.
+```sbatch
+-DWarpX_FFT=ON
+```
+Enables FFT solvers.
+```sbatch
+-DWarpX_MPI=ON
+```
+Enables MPI for parallelism.
+```sbatch
+-DWarpX_OPENPMD=ON
+```
+Enables openPMD diagnostic output through openPMD-api.
+```sbatch
+-DWarpX_QED=ON
+```
+Enables strong-field QED physics from PICSAR-QED as quantum synchrotron emission and Breit-Wheeler pair production (required for these studies).
+```sbatch
+-DWarpX_PYTHON=ON
+```
+Builds a WarpX's Python interface that allows CUDA simulation to be loaded and controlled from Python.
+
+
 #### WarpX feature (end)
 
 Also, we require to use QED table not downloaded in the previous orders, then copy the following files from this Github into the created warpx directory:
