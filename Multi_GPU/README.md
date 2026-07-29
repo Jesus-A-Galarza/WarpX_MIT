@@ -1,9 +1,9 @@
 # Running WarpX with Multiple GPUs
 ## 1 GPU configuration limitations
-Running WarpX with a number of cells greater than $576^3$ requires a memory higher than 24Gb while subMIT nodes have a capacity of 21 Gb. Then, using multiple GPU's becomes imperative; however, there are still limitations. 
+Running WarpX with a number of cells greater than $576^3$ requires a memory higher than 24Gb while subMIT nodes have a capacity of 21 Gb. Then, using multiple GPU's becomes imperative.
 
 ## 2 GPU configuration
-While it is possible to run with multiple GPU's with MPI, subMIT capacity is shared among all their users and consequently availability for a number of GPUs higher than 2 is scarce. The recommendation is to send an email to subMIT team for a reserved daily usage if you would like to run complex jobs. The following lines are the information of the nodes and their addresses. These are easily replaceable in the batch job to point towards an specific node in the batch file:
+While it is possible to run with multiple GPU's with MPI, subMIT capacity is shared among all their users and, consequently, availability for a number of GPUs higher than 2 is scarce. The recommendation is to send an email to subMIT team for a reserved daily usage if you would like to run complex jobs. The following lines are the information of the nodes and their addresses. These are easily replaceable in the batch job to point towards an specific node in the batch file:
 
 ```bash
 ---- nvidia_a30
@@ -21,7 +21,18 @@ submit37 gpu:2
 ---- gtx1080
 submit60to73 gtx1080
 ```
-Acknowledging these limitations, modifications in both the warpX input file and in the batch are required to run with (in this case) 2 GPUs. Warp
+Acknowledging these limitations, modifications in both the warpX input file and in the batch are required to run with (in this case) 2 GPUs. For this case we included the line in the warpX input:
+```bash
+warpx.numprocs = 1 1 2
+```
+This line controls the MPI domain decomposition. It tells warpX to divide the z-axis into 2 sections, creating two computational boxes, one for each MPI rank.
+
+Then you can run
+```bash
+sbatch perlmutter_fccz_random.sbatch
+```
+to obtain your job
 ### WarpX file modification to allow multiple GPUs usage
-\
+#### Atention
+WarpX required the product of warpx.numprocs to equal the number of MPI ranks, on MPI per GPU.
 
