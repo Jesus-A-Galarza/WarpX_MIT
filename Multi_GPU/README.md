@@ -21,4 +21,6 @@ submit37 gpu:2
 ---- gtx1080
 submit60to73 gtx1080
 ```
+Acknowledging these limitations, we 
 ### WarpX file modification to allow multiple GPUs usage
+
