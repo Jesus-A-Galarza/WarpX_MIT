@@ -40,3 +40,6 @@ Restricts the analysis to specific $available$ iterations.
 --outside-mode MODE
 ```
 batch or cumulative. For example, in analysis for iteration 100, batch-mode will read particles_in and particels_out only in iteration 100 (by WarpX ScrapBoudary function in the grid, it will record all particles that reach the grid, whether in previous iterations or not, then this is the desired and default mode) but cumulative will read only particles_in in iteration 100 and particles_out for all iteration less than and equal to 100.
+
+Magenta lines in the plots mark the simulation limits and these must be hard-coded in the plotting script if you chose to use different box dimensions but these do not affect the simulation or plotting process.
+
