@@ -1,4 +1,4 @@
-# Plotting scrips
+# Plotting scripts
 ## plots_base
 This reads (by default) the diags directory produced by WarpX and produces two directories: diags_iteration_analysis and diags_iteration_analysis_corrected.
 
