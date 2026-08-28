@@ -42,4 +42,15 @@ Restricts the analysis to specific $available$ iterations.
 batch or cumulative. For example, in analysis for iteration 100, batch-mode will read particles_in and particels_out only in iteration 100 (by WarpX ScrapBoudary function in the grid, it will record all particles that reach the grid, whether in previous iterations or not, then this is the desired and default mode) but cumulative will read only particles_in in iteration 100 and particles_out for all iteration less than and equal to 100.
 
 Magenta lines in the plots mark the simulation limits and these must be hard-coded in the plotting script if you chose to use different box dimensions but these do not affect the simulation or plotting process with the exception of production particles.
+# Fix Position and Momentum
 
+## corrected_boosted
+'fix_position_momentum' reads the `diags` directory produced by WarpX and creates a complete copied directory called `diags_corrected_boosted`. The original `diags` directory is not modified.
+The first correction is for particles recorded by the WarpX BoundaryScraping diagnostics. In WarpX, if a particle is inside of the simulation grid at one iteration but is calculated to be outside of the grid at the next iteration, WarpX can record the particle at its calculated position outside of the simulation box.
+For particles in the `particles_out` diagnostics, the script uses the recorded position and the original propagated momentum of the particle to trace its trajectory backwards. It calculates the intersection between this trajectory and the simulation box and replaces the outside position with the location where the particle would have crossed the simulation boundary. Particles that are already inside the grid or already located on a boundary are left unchanged. If an intersection cannot be calculated, the original position is also left unchanged. 
+The simulation box dimensions used for this correction are:
+x = 2083.55 micrometres
+y = 26.8711 micrometres
+z = 267.170 millimetres
+These dimensions are hard coded in the script. The second correction applies the crossing-angle Lorentz boost to the IPC particles.
+The script uses a crossing angle of 30 mrad and performs a common boost in the positive x direction using half of the crossing angle. For the propagated particle momentum, the Lorentz transformation is applied to the x momentum while the y and z momentum components remain unchanged. The particle energy is calculated using the full momentum and electron mass before applying the boost. The script also applies the crossing-angle transformation to the momentum stored at the location where the IPC was originally produced. These quantities are stored as `origUx`, `origUy`, and `origUz`, which represent the proper velocity $\gamma v$. The script converts these values into physical momentum using
